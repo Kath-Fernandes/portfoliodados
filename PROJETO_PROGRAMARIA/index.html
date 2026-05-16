@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfólio de transição de carreira para Dados — projetos, certificações e minha jornada no mundo da análise de dados." />
+  <title>Meu Portfólio | Transição para Dados</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================
+       NAVEGAÇÃO
+  ======================================================= -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">✦ Meu Portfólio</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active">Início</a></li>
+      <li><a href="#sobre">Sobre Mim</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======================================================
+       HERO
+  ======================================================= -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-greeting"> Olá, seja bem-vinda(o)!</p>
+      <h1 class="hero-title">Transformando dados<br>em <span>histórias</span></h1>
+      <!--<p class="hero-subtitle">Passando pelo transição de carreria · Apaixonada por dados e todas as suas tecnologias
+      </p>-->
+      <p class="hero-description">
+        Aqui você encontrará a minha jornada, meus projetos construidos durante este caminho e tudo que estou
+        aprendendo na minha transição para a área de dados. Cada projeto conta
+        um pouco dessa minha evolução.
+      </p>
+      <div class="hero-btns">
+        <a href="#projetos" class="btn btn-primary">
+          <i class="fa-solid fa-folder-open"></i> Ver Projetos
+        </a>
+        <a href="#sobre" class="btn btn-outline">
+          <i class="fa-solid fa-user"></i> Sobre Mim
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       SOBRE MIM
+  ======================================================= -->
+  <div id="sobre" style="background:var(--warm-beige); padding:5rem 1.5rem;">
+    <div class="sobre-inner">
+
+      <div class="section-header reveal">
+        <span class="section-tag">Quem sou eu</span>
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="sobre-grid">
+
+        <!-- Foto -->
+        <div class="sobre-photo-wrap reveal">
+          <img src="assets/images/Captura de tela 2025-10-06 224446.png" alt="Minha foto de perfil" class="sobre-photo"
+            id="profilePhoto" onerror="this.src='https://via.placeholder.com/220x220/E8C4A0/6B4C3B?text=📸'" />
+          <!-- 💡 Substitua profile_avatar.png pela sua foto real na pasta assets/images/ -->
+          <p class="sobre-photo-name">Kathleen Fernandes</p>
+          <p class="sobre-photo-role">Analista de Dados em Formação</p>
+          <!-- <p class="sobre-upload-hint">📸 Substitua a imagem em assets/images/profile_avatar.png</p> -->
+        </div>
+
+        <!-- Texto -->
+        <div class="sobre-text reveal">
+          <h3 style="color:var(--brown-dark); margin-bottom:1rem;">
+            <span class="cursive" style="font-size:1.8rem; color:var(--terracotta);">Minha história</span>
+          </h3>
+
+          <p>
+            Olá! Sou uma mulher preta, periférica, mãe e esposa, que aos 33 anos está em transição de carreira.
+            Durante essa transição descobri o mundo dos dados e me apaixonei por ele.
+            Estou me dedicando a aprender e a transformar informação em decisões inteligentes.
+            Cada linha de código e cada dashboard é um passo nessa jornada incrível.
+            Que não é facil, mas está sendo sendo incrivel a cada dia.
+          </p>
+          <p>
+            Hoje meu foco está em <strong>Análise de Dados</strong>,
+            aprendendo ferramentas como Python, SQL, Power BI e muito mais.
+            Acredito que os dados têm o poder de contar histórias que mudam o mundo.
+          </p>
+          <p>
+            Além dos estudos, participo de eventos de tecnologia e
+            comunidades como a <strong>PrograMaria</strong> e a <strong>Escola da Nuvem</strong> onde me inspiro e
+            hoje inspiro outras novos aspirantes na área de dados.
+          </p>
+          </p>
+          <!-- Tags -->
+          <div class="sobre-tags">
+            <span class="tag">🐍 Python</span>
+            <span class="tag">🗃️ SQL</span>
+            <span class="tag">📊 Power BI</span>
+            <span class="tag">📈 Excel</span>
+            <span class="tag">🤖 Machine Learning</span>
+            <span class="tag">📉 Estatística</span>
+            <span class="tag">💡 Storytelling</span>
+            <span class="tag">☁️ Google Colab</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <!-- Skills com barra de progresso 
+          <div class="skills-grid" style="margin-top:2rem;">
+            <div class="skill-card">
+              <div class="skill-icon">🐍</div>
+              <div class="skill-name">Python</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-width="65%" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🗃️</div>
+              <div class="skill-name">SQL</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-width="70%" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">📊</div>
+              <div class="skill-name">Power BI</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-width="60%" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">📈</div>
+              <div class="skill-name">Excel</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-width="80%" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+      <!-- ======================================================
+       FORMAÇÃO & CERTIFICAÇÕES & BADGES
+  ======================================================= -->
+      <section id="formacao">
+
+        <div class="section-header reveal">
+          <span class="section-tag">Minha jornada acadêmica</span>
+          <h2 class="section-title">Formação &amp; Certificações</h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle">Cada certificado é uma nova história que estou construindo.</p>
+        </div>
+
+        <!-- Timeline de cursos -->
+        <div class="timeline reveal" style="max-width:720px; margin:0 auto 3rem;">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2026 – em andamento</div>
+              <div class="timeline-title">Banco de Dado</div>
+              <div class="timeline-org">Faculdade Impacta</div>
+              <p style="font-size:0.88rem; margin-top:0.5rem; color:var(--text-light);">
+                Graduação com foco para atuação em administração de bancos de dados, análise de dados,
+                desenvolvimento de projetos de data science e implementação de soluções de inteligência artificial.
+                Principais Habilidades: Gerenciamento de bancos de dados, Segurança de dados, Análise exploratória
+                de dados, Modelagem e machine learning, Programação.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2025 - em andamento</div>
+              <div class="timeline-title">Tecnologia em Ciência de Dados</div>
+              <div class="timeline-org">Faculdade Uninter</div>
+              <p style="font-size:0.88rem; margin-top:0.5rem; color:var(--text-light);">
+                Graduação com ênfase em formação interdisciplinar, integrando conhecimentos de matemática,
+                estatística, programação, computação, inteligência artificial e gestão de negócios.
+                Principais disciplinas: Inteligência Artificial Aplicada, Probabilidade e Estatística, Computação em
+                Nuvem, Análise Exploratória de Dados, Big Data, Computação Paralela, Machine Learning, Reinforcement
+                Learning, Deep Learning.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2025</div>
+              <div class="timeline-title">AWS Re/Start + IA</div>
+              <div class="timeline-org">Escola da Nuvem</div>
+              <p style="font-size:0.88rem; margin-top:0.5rem; color:var(--text-light);">
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2025</div>
+              <div class="timeline-title">Ciclo Formativo Intermediário</div>
+              <div class="timeline-org">PretaLab</div>
+              <p style="font-size:0.88rem; margin-top:0.5rem; color:var(--text-light);">
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2025</div>
+              <div class="timeline-title">Inteligência Artificial e Análise de Dados</div>
+              <div class="timeline-org">Finance TechBoost (Parceria entre C6 Bank e AWS)</div>
+              <p style="font-size:0.88rem; margin-top:0.5rem; color:var(--text-light);">
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2025</div>
+              <div class="timeline-title">Banco de Dados SQL - Nivel Iniciante</div>
+              <div class="timeline-org">Instituto Matera</div>
+              <p style="font-size:0.88rem; margin-top:0.5rem; color:var(--text-light);">
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Badges -->
+        <div class="reveal" style="max-width:900px; margin:0 auto;">
+          <h3 style="text-align:center; color:var(--brown-dark); margin-bottom:0.5rem;">
+            <span class="cursive" style="font-size:1.6rem; color:var(--terracotta);">Minhas Badges</span>
+          </h3>
+          <p style="text-align:center; color:var(--text-light); font-size:0.88rem; margin-bottom:1.5rem;">
+            <!-- Conquistas digitais — adicione as suas badges do Credly, LinkedIn, DIO e outros -->
+          </p>
+
+          <div class="badges-grid">
+            <div class="badge-item" title="badge-aws">
+              <span class="badge-emoji">🏅</span>
+              <a href="https://www.credly.com/badges/e1b6cfc9-6f88-4bf4-a059-81283b184897/public_url" target="_blank">
+                <div class="badge-name">AWS Certified Cloud Practitioner</div>
+                <div class="badge-issuer">Amazon Web Services</div>
+              </a>
+            </div>
+            <div class="badge-item" title="badge-aws">
+              <span class="badge-emoji">🏅</span>
+              <a href="https://www.credly.com/badges/cd1dff7c-a48e-4e6d-9449-b266bf47e456/public_url" target="_blank">
+                <div class="badge-name">AWS re/Start Graduate</div>
+                <div class="badge-issuer">Amazon Web Services</div>
+              </a>
+            </div>
+            <!--<div class="badge-item">
+          <span class="badge-emoji">🎖️</span>
+          <div class="badge-name">Sua Badge</div>
+          <div class="badge-issuer">Instituição</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">🌟</span>
+          <div class="badge-name">Sua Badge</div>
+          <div class="badge-issuer">Instituição</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">💎</span>
+          <div class="badge-name">Sua Badge</div>
+          <div class="badge-issuer">Instituição</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">🔬</span>
+          <div class="badge-name">Sua Badge</div>
+          <div class="badge-issuer">Instituição</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">📊</span>
+          <div class="badge-name">Sua Badge</div>
+          <div class="badge-issuer">Instituição</div>
+        </div>
+      </div>
+    </div> -->
+
+      </section>
+
+      <!-- ======================================================
+       PROJETOS
+  ======================================================= -->
+      <div id="projetos" style="background:var(--warm-beige); padding:5rem 1.5rem;">
+        <div class="projetos-inner">
+
+          <div class="section-header reveal">
+            <span class="section-tag">O que estou construindo</span>
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="section-line"></div>
+            <p class="section-subtitle">Projetos reais desenvolvidos durante os meus estudos</p>
+          </div>
+
+          <div class="projetos-grid">
+
+            <!-- Projeto 1 -->
+            <div class="projeto-card reveal">
+              <div class="projeto-thumb">📊</div>
+              <div class="projeto-body">
+                <div class="projeto-tags">
+                  <span class="projeto-tag">Python</span>
+                  <span class="projeto-tag">Pandas</span>
+                  <span class="projeto-tag">Data Studio</span>
+                </div>
+                <div class="projeto-title">Analise de Diversidade - Curso Programaria</div>
+                <p class="projeto-desc">
+                  Realizei a análise exploratória com os dados da pesquisa DataHackers do
+                  ano de 2022, que traz insights valiosos sobre o mercado de tecnologia no
+                  Brasil. O resultado foi meu primeiro dashboard interativo, com informações relevantes e organizadas
+                  sobre o cenário da área de dados.
+                </p>
+                <div class="projeto-links">
+                  <a href="https://datastudio.google.com/u/0/reporting/ec627c79-4b58-4c4b-b339-3a06720230b7/page/hcxJF?s=vUAEKaNRT5Q"
+                    class="projeto-link" target="_blank">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Projeto 2 
+            <div class="projeto-card reveal">
+              <div class="projeto-thumb">🗃️</div>
+              <div class="projeto-body">
+                <div class="projeto-tags">
+                  <span class="projeto-tag">SQL</span>
+                  <span class="projeto-tag">MySQL</span>
+                </div>
+                <div class="projeto-title">Nome do Projeto 2</div>
+                <p class="projeto-desc">
+                  Descreva aqui o que o projeto faz, qual problema resolve e o que você aprendeu.
+                </p>
+                <div class="projeto-links">
+                  <a href="#" class="projeto-link" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                  </a>
+                  <a href="#" class="projeto-link" target="_blank">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Projeto 3 
+            <div class="projeto-card reveal">
+              <div class="projeto-thumb">📈</div>
+              <div class="projeto-body">
+                <div class="projeto-tags">
+                  <span class="projeto-tag">Power BI</span>
+                  <span class="projeto-tag">Dashboard</span>
+                </div>
+                <div class="projeto-title">Nome do Projeto 3</div>
+                <p class="projeto-desc">
+                  Descreva aqui o que o projeto faz, qual problema resolve e o que você aprendeu.
+                </p>
+                <div class="projeto-links">
+                  <a href="#" class="projeto-link" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                  </a>
+                  <a href="#" class="projeto-link" target="_blank">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                  </a>
+                </div>
+              </div>
+            </div> -->
+
+          </div><!-- /projetos-grid -->
+
+
+        </div>
+      </div><!-- /projetos -->
+
+      <!-- ======================================================
+       GALERIA DE EVENTOS
+  ======================================================= -->
+      <section id="galeria">
+
+        <div class="section-header reveal">
+          <span class="section-tag">Minha participação</span>
+          <h2 class="section-title">Galeria de Eventos</h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle">Momentos especiais da minha jornada em eventos de tech e dados</p>
+        </div>
+
+        <div class="galeria-grid reveal" style="max-width:1000px; margin:0 auto;">
+
+          <!-- Para adicionar fotos reais: coloque a imagem em assets/images/
+           e substitua data-src e o conteúdo da div -->
+
+          <div class="galeria-item"
+            data-src="assets/images/Imagem do WhatsApp de 2025-10-05 à(s) 11.37.51_83b3c0a1.jpg">
+            <div class="galeria-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-label">Google Cloud</span>
+            </div>
+            <div class="galeria-overlay"><span>Participação no Google Cloud 2025</span></div>
+          </div>
+
+          <div class="galeria-item" data-src="assets\images\6ad9c9b9-e6c6-469e-b47d-9e9093f3ce83.jpeg">
+            <div class="galeria-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-label">Conecta DEV 3 </span>
+            </div>
+            <div class="galeria-overlay"><span>Participação no Conecta DEV 3 (2025)</span></div>
+          </div>
+          <div class="galeria-item" data-src="assets/images/@othiliabalades-1913.jpg">
+            <div class="galeria-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-label">Mulheres em Dados (2025)</span>
+            </div>
+            <div class="galeria-overlay"><span>Participação no Big Data Brazil Experience 2025 - Foto Painel Mulheres em
+                Dados</span></div>
+          </div>
+          <!--
+          <div class="galeria-item" data-src="">
+            <div class="galeria-placeholder">
+              <span class="ph-icon">🌸</span>
+              <span class="ph-label">PrograMaria</span>
+            </div>
+            <div class="galeria-overlay"><span>Adicione sua foto aqui</span></div>
+          </div>
+
+          <div class="galeria-item" data-src="">
+            <div class="galeria-placeholder">
+              <span class="ph-icon">🤝</span>
+              <span class="ph-label">Networking</span>
+            </div>
+            <div class="galeria-overlay"><span>Adicione sua foto aqui</span></div>
+          </div>
+
+          <div class="galeria-item" data-src="">
+            <div class="galeria-placeholder">
+              <span class="ph-icon">🏆</span>
+              <span class="ph-label">Conquista</span>
+            </div>
+            <div class="galeria-overlay"><span>Adicione sua foto aqui</span></div>
+          </div>
+
+        </div>
+
+        <p class="galeria-upload-tip reveal">
+          📁 Para adicionar fotos: coloque a imagem em <code>assets/images/</code>,
+          adicione <code>data-src="assets/images/SUA-FOTO.jpg"</code> no div
+          e substitua o conteúdo interno pela tag &lt;img&gt; correspondente.
+        </p>
+      -->
+      </section>
+
+      <!-- ======================================================
+       CONTATO
+  ======================================================= -->
+      <div id="contato" style="background:var(--warm-beige); padding:5rem 1.5rem;">
+        <div class="contato-inner">
+
+          <div class="section-header reveal">
+            <span class="section-tag">Vamos conversar?</span>
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="contact-card reveal">
+
+            <div class="contact-intro">
+              <p class="cursive" style="font-size:1.5rem; color:var(--terracotta);">
+                Adoraria ouvir de você! ✨
+              </p>
+              <p>
+                Seja para falar sobre projetos, oportunidades, colaborações ou
+                simplesmente trocar uma ideia sobre dados — me manda uma mensagem!
+              </p>
+            </div>
+
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="contactName">Seu nome</label>
+                <input type="text" id="contactName" name="name" placeholder="Como posso te chamar?" required />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">E-mail</label>
+                <input type="email" id="contactEmail" name="email" placeholder="seu@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="contactMsg">Mensagem</label>
+                <textarea id="contactMsg" name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+              </button>
+            </form>
+
+            <!-- Redes sociais -->
+            <div class="social-links">
+              <a href="https://linkedin.com/in/kathleen-fernandes" target="_blank" class="social-link"
+                id="linkedinLink">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://github.com/Kath-Fernandes" target="_blank" class="social-link" id="githubLink">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <a href="mailto:kathleen.fernandes92@gmail.com" class="social-link" id="emailLink">
+                <i class="fa-solid fa-envelope"></i> E-mail
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================
+       FOOTER
+  ======================================================= -->
+      <footer>
+        <div class="footer-logo">✦ Meu Portfólio</div>
+        <p>
+          Feito com 💛 e com uma ajudinha especial da IA Antigravity, durante a minha transição de carreira para dados
+          &nbsp;|&nbsp;
+          <span id="currentYear"></span>
+        </p>
+        <p style="margin-top:0.5rem;">
+          <a href="https://github.com/Kath-Fernandes" target="_blank">
+            <i class="fa-brands fa-github"></i> Veja o código no GitHub
+          </a>
+        </p>
+      </footer>
+
+      <!-- ======================================================
+       LIGHTBOX
+  ======================================================= -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <span class="lightbox-close" id="lightboxClose" title="Fechar">&times;</span>
+        <img src="" alt="Foto ampliada" id="lightboxImg" />
+      </div>
+
+      <!-- Scroll to top -->
+      <button id="scrollTop" aria-label="Voltar ao topo">↑</button>
+
+      <!-- Scripts -->
+      <script src="assets/js/main.js"></script>
+</body>
+
+</html>
