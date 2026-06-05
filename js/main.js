@@ -121,3 +121,31 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const track = document.getElementById('carouselTrack');
+    const items = Array.from(track.children);
+    let currentIndex = 0;
+
+    function moveCarousel() {
+      // Se tivermos apenas 3 itens e eles cabem na tela, você pode pular a animação, 
+      // mas assumindo que adicionará mais fotos, este código fará o loop:
+      currentIndex++;
+      
+      // Quando chegar na última foto, volta para a primeira
+      if (currentIndex >= items.length) {
+        currentIndex = 0;
+      }
+
+      // Pega a largura do item + o espaço (gap) do CSS
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const gap = 20; 
+      const moveAmount = (itemWidth + gap) * currentIndex;
+
+      // Aplica o movimento lateral
+      track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    // Move o carrossel automaticamente a cada 3000 milissegundos (3 segundos)
+    setInterval(moveCarousel, 3000);
+});
