@@ -812,3 +812,61 @@ footer a:hover { color: var(--white); }
   .hero-btns { flex-direction: column; align-items: center; }
   .badges-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Container que esconde o que passa das bordas */
+.carousel-container {
+  width: 100%;
+  overflow: hidden; 
+  position: relative;
+  padding: 20px 0;
+}
+
+/* A "trilha" onde os itens deslizam */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.6s ease-in-out;
+  width: max-content;
+}
+
+/* Tamanho Padrão para todos os itens */
+.galeria-item {
+  width: 300px;  /* Ajuste a largura que preferir */
+  height: 300px; /* Ajuste a altura que preferir */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0; /* Impede que o item encolha */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  /* Fundo gradiente de fallback caso a imagem demore a carregar */
+  background: linear-gradient(135deg, #dfaca5, #a3b1a2); 
+}
+
+/* Estilo da Imagem */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* A mágica que padroniza o tamanho sem distorcer */
+  display: block;
+}
+
+/* Efeito Hover original adaptado (o texto sobe quando passa o mouse) */
+.galeria-overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  transition: bottom 0.3s ease;
+}
+
+.galeria-item:hover .galeria-overlay {
+  bottom: 0;
+}
