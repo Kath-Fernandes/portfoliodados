@@ -124,28 +124,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function() {
     const track = document.getElementById('carouselTrack');
+    // Pegamos o container que limita a visão para saber o tamanho da tela
+    const container = document.querySelector('.carousel-container'); 
     const items = Array.from(track.children);
-    let currentIndex = 0;
+    let currentTranslate = 0; // Vai guardar a posição atual do trilho
 
     function moveCarousel() {
-      // Se tivermos apenas 3 itens e eles cabem na tela, você pode pular a animação, 
-      // mas assumindo que adicionará mais fotos, este código fará o loop:
-      currentIndex++;
-      
-      // Quando chegar na última foto, volta para a primeira
-      if (currentIndex >= items.length) {
-        currentIndex = 0;
+      // Verifica se há itens antes de continuar para evitar erros
+      if (items.length === 0) return;
+
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const gap = 20; // O espaço (gap) que definimos no CSS
+
+      // MÁGICA AQUI: Calcula o limite máximo que podemos empurrar para a esquerda
+      // (Tamanho total do trilho de fotos menos o tamanho visível na tela)
+      const maxScroll = track.scrollWidth - container.clientWidth;
+
+      // Se todas as fotos já cabem na tela de uma vez, não há necessidade de rolar
+      if (maxScroll <= 0) return;
+
+      // Adiciona o movimento equivalente a "1 foto"
+      currentTranslate += (itemWidth + gap);
+
+      // Se a próxima rolagem tentar passar do limite que tem fotos...
+      if (currentTranslate > maxScroll) {
+        
+        // Se na rodada anterior nós já estávamos travados no limite final,
+        // chegou a hora de zerar e voltar suavemente para a primeira foto.
+        if (currentTranslate - (itemWidth + gap) >= maxScroll) {
+          currentTranslate = 0;
+        } else {
+          // Se estiver quase no final, em vez de mostrar espaço vazio,
+          // a gente "trava" o movimento exatamente no último pixel possível.
+          currentTranslate = maxScroll;
+        }
       }
 
-      // Pega a largura do item + o espaço (gap) do CSS
-      const itemWidth = items[0].getBoundingClientRect().width;
-      const gap = 20; 
-      const moveAmount = (itemWidth + gap) * currentIndex;
-
-      // Aplica o movimento lateral
-      track.style.transform = `translateX(-${moveAmount}px)`;
+      // Aplica o movimento
+      track.style.transform = `translateX(-${currentTranslate}px)`;
     }
 
-    // Move o carrossel automaticamente a cada 3000 milissegundos (3 segundos)
+    // Move o carrossel a cada 3 segundos
     setInterval(moveCarousel, 3000);
+  });
+
 });
