@@ -1,3 +1,4 @@
+JavaScript
 // ============================================================
 //  PORTFOLIO - main.js
 // ============================================================
@@ -79,15 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   animateSkillBars();
 
-  /* ---- LIGHTBOX ---- */
+  /* ---- LIGHTBOX (Atualizado para o Carrossel) ---- */
   const lightbox    = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
 
-  document.querySelectorAll('.galeria-item[data-src]').forEach(item => {
+  // Agora busca o clique nos itens e captura a imagem interna
+  document.querySelectorAll('.galeria-item').forEach(item => {
     item.addEventListener('click', () => {
-      const src = item.getAttribute('data-src');
-      if (!src) return;
-      lightboxImg.src = src;
+      const img = item.querySelector('img'); // Encontra a tag img que colocamos no HTML
+      if (!img || !img.src) return;
+      
+      lightboxImg.src = img.src; // Pega o caminho real da imagem
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
@@ -120,52 +123,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('currentYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const track = document.getElementById('carouselTrack');
-    // Pegamos o container que limita a visão para saber o tamanho da tela
-    const container = document.querySelector('.carousel-container'); 
+  /* ---- CARROSSEL DE EVENTOS ---- */
+  const track = document.getElementById('carouselTrack');
+  const container = document.querySelector('.carousel-container'); 
+  
+  // Só executa o código do carrossel se esses elementos existirem na página
+  if (track && container) {
     const items = Array.from(track.children);
-    let currentTranslate = 0; // Vai guardar a posição atual do trilho
+    let currentTranslate = 0; 
 
     function moveCarousel() {
-      // Verifica se há itens antes de continuar para evitar erros
       if (items.length === 0) return;
 
       const itemWidth = items[0].getBoundingClientRect().width;
-      const gap = 20; // O espaço (gap) que definimos no CSS
-
-      // MÁGICA AQUI: Calcula o limite máximo que podemos empurrar para a esquerda
-      // (Tamanho total do trilho de fotos menos o tamanho visível na tela)
+      const gap = 20; 
       const maxScroll = track.scrollWidth - container.clientWidth;
 
-      // Se todas as fotos já cabem na tela de uma vez, não há necessidade de rolar
       if (maxScroll <= 0) return;
 
-      // Adiciona o movimento equivalente a "1 foto"
       currentTranslate += (itemWidth + gap);
 
-      // Se a próxima rolagem tentar passar do limite que tem fotos...
       if (currentTranslate > maxScroll) {
-        
-        // Se na rodada anterior nós já estávamos travados no limite final,
-        // chegou a hora de zerar e voltar suavemente para a primeira foto.
         if (currentTranslate - (itemWidth + gap) >= maxScroll) {
           currentTranslate = 0;
         } else {
-          // Se estiver quase no final, em vez de mostrar espaço vazio,
-          // a gente "trava" o movimento exatamente no último pixel possível.
           currentTranslate = maxScroll;
         }
       }
 
-      // Aplica o movimento
       track.style.transform = `translateX(-${currentTranslate}px)`;
     }
 
-    // Move o carrossel a cada 3 segundos
     setInterval(moveCarousel, 3000);
-  });
+  }
 
-});
+}); // FIM DO DOMContentLoaded - Apenas um fechamento no final!
