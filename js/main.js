@@ -201,5 +201,4 @@ revealOnScroll(); // <--- ESTA LINHA É A CHAVE. Ela força a verificação no c
 
     setInterval(moveCarousel, 3000);
   }
-
-}); // MContentLoaded - Apenas um fechamento no final!
+}); 
