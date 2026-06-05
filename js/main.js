@@ -1,133 +1,177 @@
-JavaScript
 // ============================================================
-//  PORTFOLIO - main.js
+//  PORTFOLIO - main.js (Versão à prova de falhas)
 // ============================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
 
-  /* ---- HAMBURGER MENU ---- */
+  /* ---- 1. REVEAL ON SCROLL (Prioridade: Fazer o conteúdo aparecer) ---- */
+  const reveals = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    reveals.forEach(function(el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  // Roda imediatamente ao abrir a página
+  revealOnScroll();
+
+
+  /* ---- 2. HAMBURGER MENU ---- */
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
 
-  hamburger?.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    hamburger.classList.toggle('active');
-  });
-
-  // Fecha menu ao clicar em link
-  navLinks?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('active');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
     });
-  });
 
-  /* ---- ACTIVE NAV LINK on scroll ---- */
+    // Fecha menu ao clicar em link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
+
+
+  /* ---- 3. ACTIVE NAV LINK on scroll ---- */
   const sections = document.querySelectorAll('section[id], div[id]');
   const allNavLinks = document.querySelectorAll('.nav-links a');
 
   function updateActiveLink() {
     let current = '';
-    sections.forEach(sec => {
-      if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+    sections.forEach(function(sec) {
+      if (window.scrollY >= sec.offsetTop - 120) {
+        current = sec.id;
+      }
     });
-    allNavLinks.forEach(a => {
+    allNavLinks.forEach(function(a) {
       a.classList.remove('active');
-      if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
+      if (a.getAttribute('href') === '#' + current) {
+        a.classList.add('active');
+      }
     });
   }
 
-  /* ---- SCROLL TO TOP ---- */
+
+  /* ---- 4. SCROLL TO TOP & SKILL BARS ---- */
   const scrollTopBtn = document.getElementById('scrollTop');
-  function handleScroll() {
-    if (window.scrollY > 400) scrollTopBtn?.classList.add('visible');
-    else scrollTopBtn?.classList.remove('visible');
-    updateActiveLink();
-    revealOnScroll();
-    animateSkillBars();
-  }
-
-  scrollTopBtn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-
-  /* ---- REVEAL ON SCROLL ---- */
-  const reveals = document.querySelectorAll('.reveal');
-
-  function revealOnScroll() {
-    reveals.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 80) el.classList.add('visible');
-    });
-  }
-  revealOnScroll();
-
-  /* ---- SKILL BARS ANIMATION ---- */
   let skillsAnimated = false;
+
   function animateSkillBars() {
     if (skillsAnimated) return;
     const skillsSection = document.getElementById('sobre');
     if (!skillsSection) return;
     const rect = skillsSection.getBoundingClientRect();
+    
     if (rect.top < window.innerHeight) {
-      document.querySelectorAll('.skill-bar').forEach(bar => {
+      const bars = document.querySelectorAll('.skill-bar');
+      bars.forEach(function(bar) {
         bar.style.width = bar.getAttribute('data-width') || '70%';
       });
       skillsAnimated = true;
     }
   }
+  // Tenta animar as barras logo no carregamento também
   animateSkillBars();
 
-  /* ---- LIGHTBOX (Atualizado para o Carrossel) ---- */
-  const lightbox    = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-
-  // Agora busca o clique nos itens e captura a imagem interna
-  document.querySelectorAll('.galeria-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img'); // Encontra a tag img que colocamos no HTML
-      if (!img || !img.src) return;
-      
-      lightboxImg.src = img.src; // Pega o caminho real da imagem
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  document.getElementById('lightboxClose')?.addEventListener('click', closeLightbox);
-  lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-  function closeLightbox() {
-    lightbox?.classList.remove('active');
-    document.body.style.overflow = '';
+  function handleScroll() {
+    if (scrollTopBtn) {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
+    updateActiveLink();
+    revealOnScroll();
+    animateSkillBars();
   }
 
-  /* ---- CONTACT FORM (simulado) ---- */
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Agrupa todos os eventos de scroll aqui
+  window.addEventListener('scroll', handleScroll);
+
+
+  /* ---- 5. LIGHTBOX (Atualizado) ---- */
+  const lightbox    = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  if (lightbox && lightboxImg) {
+    const galeriaItems = document.querySelectorAll('.galeria-item');
+    
+    galeriaItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        const img = item.querySelector('img'); 
+        if (!img || !img.src) return;
+        
+        lightboxImg.src = img.src; 
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+    
+    lightbox.addEventListener('click', function(e) { 
+      if (e.target === lightbox) closeLightbox(); 
+    });
+    
+    document.addEventListener('keydown', function(e) { 
+      if (e.key === 'Escape') closeLightbox(); 
+    });
+  }
+
+
+  /* ---- 6. CONTACT FORM ---- */
   const form = document.getElementById('contactForm');
-  form?.addEventListener('submit', e => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type=submit]');
-    btn.textContent = '✓ Mensagem enviada!';
-    btn.style.background = 'var(--sage)';
-    setTimeout(() => {
-      btn.textContent = 'Enviar mensagem';
-      btn.style.background = '';
-      form.reset();
-    }, 3000);
-  });
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('button[type=submit]');
+      if (btn) {
+        btn.textContent = '✓ Mensagem enviada!';
+        btn.style.background = 'var(--sage)';
+        setTimeout(function() {
+          btn.textContent = 'Enviar mensagem';
+          btn.style.background = '';
+          form.reset();
+        }, 3000);
+      }
+    });
+  }
 
-  /* ---- YEAR auto ---- */
+
+  /* ---- 7. YEAR auto ---- */
   const yearEl = document.getElementById('currentYear');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-  /* ---- CARROSSEL DE EVENTOS ---- */
+
+  /* ---- 8. CARROSSEL DE EVENTOS ---- */
   const track = document.getElementById('carouselTrack');
   const container = document.querySelector('.carousel-container'); 
   
-  // Só executa o código do carrossel se esses elementos existirem na página
   if (track && container) {
     const items = Array.from(track.children);
     let currentTranslate = 0; 
@@ -151,10 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      track.style.transform = `translateX(-${currentTranslate}px)`;
+      track.style.transform = 'translateX(-' + currentTranslate + 'px)';
     }
 
     setInterval(moveCarousel, 3000);
   }
 
-}); // FIM DO DOMContentLoaded - Apenas um fechamento no final!
+});MContentLoaded - Apenas um fechamento no final!
