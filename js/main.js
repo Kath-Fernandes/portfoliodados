@@ -167,5 +167,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // Move o carrossel a cada 3 segundos
     setInterval(moveCarousel, 3000);
   });
-
 });
