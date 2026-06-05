@@ -201,4 +201,4 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(moveCarousel, 3000);
   }
 
-});MContentLoaded - Apenas um fechamento no final!
+}); // MContentLoaded - Apenas um fechamento no final!
