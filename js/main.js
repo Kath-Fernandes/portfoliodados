@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  // Roda imediatamente ao abrir a página
-  revealOnScroll();
+// EXECUTE ISSO APÓS A DEFINIÇÃO DA FUNÇÃO:
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // <--- ESTA LINHA É A CHAVE. Ela força a verificação no carregamento.
 
 
   /* ---- 2. HAMBURGER MENU ---- */
